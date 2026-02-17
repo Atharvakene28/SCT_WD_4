@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindspark | Modern Productivity</title>
+    <meta name="description"
+        content="A premium, glassmorphism-inspired to-do application to streamline your daily workflow with elegance and ease.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Mindspark</h1>
+                <p id="current-date"></p>
+            </div>
+            <div class="header-actions">
+                <div class="stats-card">
+                    <div class="progress-ring">
+                        <svg width="60" height="60">
+                            <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="4"
+                                fill="transparent" r="26" cx="30" cy="30" />
+                            <circle class="progress-ring__circle" stroke="url(#gradient)" stroke-width="4"
+                                stroke-dasharray="163.36" stroke-dashoffset="163.36" fill="transparent" r="26" cx="30"
+                                cy="30" />
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8E2DE2" />
+                                    <stop offset="100%" stop-color="#4A00E0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span id="progress-text">0%</span>
+                    </div>
+                </div>
+        </header>
+
+        <section class="input-section">
+            <form id="todo-form" class="glass-morph">
+                <input type="text" id="todo-input" placeholder="What's on your mind?" aria-label="New Task" required>
+                <div class="input-actions">
+                    <select id="priority-select" aria-label="Task Priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <button type="submit" id="add-btn" aria-label="Add Task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="filter-section">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <button id="clear-completed" class="text-btn">Clear Completed</button>
+        </section>
+
+        <section class="list-section">
+            <ul id="todo-list">
+                <!-- Tasks will be injected here -->
+            </ul>
+            <div id="empty-state" class="hidden">
+                <div class="empty-icon">✨</div>
+                <p>All clear! Time to relax or start something new.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
